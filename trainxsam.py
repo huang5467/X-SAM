@@ -104,11 +104,7 @@ def train(model, train_loader, test_loader, optimizer, criterion, device, epochs
                 total_loss += loss.item()
                 loss.backward()
 
-                # 3) Modify gradients using the stored eigenvector v
-                #if v is not None:
-                    #modify_gradient_with_projection(model, v, alpha=args.alpha)
-
-                # 4) First step of SAM
+ 
                 optimizer.first_step(zero_grad=True, normalization=True)
 
                 # 5) Second forward & backward pass
